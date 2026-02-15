@@ -11,7 +11,7 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  tests: './tests/*_test.js',
+  tests: './Tests/*_test.js',
   output: './output',
   helpers: {
     WebDriver: {
@@ -22,7 +22,7 @@ exports.config = {
   },
   include: {
     I: './steps_file.js',
-
+    loginPage: "./Pages/loginPage.js",
   },
   plugins: {
     htmlReporter: {

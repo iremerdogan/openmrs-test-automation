@@ -1,5 +1,5 @@
 Feature('login');
 
-Scenario('test something',  ({ I }) => {
-I.login();
+Scenario('test something',  ({ I, loginPage }) => {
+loginPage.login();
 });
