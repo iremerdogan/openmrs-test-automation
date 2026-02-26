@@ -85,19 +85,28 @@ module.exports = {
         await I.pressKey(['Ctrl', 'a']);
         await I.type(birthYear);
 
-        I.waitForElement(this.fields.idCard, 5);
+        //refactored according to previously mandatory but currently not visible fields 
+            
+        const idPart = await I.grabNumberOfVisibleElements(this.fields.idCard)
+        if (idPart > 0)
+        {
         I.fillField(this.fields.idCard, idCard);
         I.waitForElement(this.fields.legacyId, 5);
         I.fillField(this.fields.legacyId, legacyId);
         I.waitForElement(this.fields.oldId, 5);
         I.fillField(this.fields.oldId, olId);
+        }
 
+        else {     
         I.waitForElement(this.fields.addressCity);
         I.fillField(this.fields.addressCity, city);
         I.waitForElement(this.fields.addressCountry);
         I.fillField(this.fields.addressCountry, country);
         I.waitForElement(this.fields.patientPhone);
         I.fillField(this.fields.patientPhone, phoneNumber);
+        }
+        
+
         I.waitForElement(this.buttons.registerBtn);
         I.click(this.buttons.registerBtn);
         I.waitForElement(this.messages.successMsg, 20);

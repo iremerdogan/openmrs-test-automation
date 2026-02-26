@@ -27,7 +27,9 @@ exports.config = {
     search_patientPage: "./Pages/search_patientPage.js",
     add_patientVisitPage: "./Pages/add_patientVisitPage.js",
     add_vitalsPage: "./Pages/add_vitalsPage.js",
-    add_medicationPage: "./Pages/add_medicationPage.js"
+    add_medicationPage: "./Pages/add_medicationPage.js",
+    end_visitPage: "./Pages/end_visitPage.js",
+    logoutPage: "./Pages/logoutPage.js"
   },
   plugins: {
     htmlReporter: {

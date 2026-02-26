@@ -7,12 +7,12 @@ module.exports = {
     },
 
     messages:{
-        //noVitalSigns: '//p[contains(text(),"There are no vital signs")]',
         successMsg: '//div[@class="cds--actionable-notification__subtitle"][contains(text(),"Visit started")]',
     },
 
     buttons:{
-        actionsBtn: 'button#custom-actions-overflow-menu-trigger',
+        actionsBtn: 'button#custom-actions-overflow-menu-trigger', //button[@aria-label="App Menu"]
+        endVisitBtn: '//button//div[contains(text(),"End active visit")]',
         addVisitBtn: '//button//div[contains(text(),"Add visit")]',
         cmbPunctuality: '//div//option[contains(text(),"Select an option")]',
         cmbOnTime: '//div//option[contains(text(),"On time")]',
@@ -25,10 +25,10 @@ module.exports = {
     patientVisit: async function(){
         I.click(this.buttons.actionsBtn);
         
-        const endVstBtn = await I.grabNumberOfVisibleElements('//button//div[contains(text(),"End active visit")]');
+        const endVstBtn = await I.grabNumberOfVisibleElements(this.buttons.endVisitBtn);
         if (endVstBtn > 0){
             console.log("There's already a visit. Skipping the process...")
-        } //if there's a visit, skip the rest of the test and switch to add vitals test
+        }
 
         else {
         //we can add a new visit as there is no visit to end 
@@ -36,7 +36,7 @@ module.exports = {
         I.click(this.buttons.addVisitBtn);
         I.wait(5); //to see the locations clearly
         I.waitForElement(this.fields.cmbLocation, 5);
-        I.click(this.fields.cmbLocation);
+        I.forceClick(this.fields.cmbLocation);
         I.pressKey(['Control', 'a']);
         I.clearField(this.fields.cmbLocation);
         I.waitForElement(this.buttons.cmbMobileClinic, 10);
