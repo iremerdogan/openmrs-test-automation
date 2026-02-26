@@ -35,10 +35,11 @@ module.exports = {
         I.waitForElement(this.buttons.addVisitBtn, 10);
         I.click(this.buttons.addVisitBtn);
         I.wait(5); //to see the locations clearly
-        I.waitForElement(this.fields.cmbLocation, 5);
-        I.forceClick(this.fields.cmbLocation);
+        I.waitForElement(this.fields.cmbLocation, 10);
+        I.click(this.fields.cmbLocation);
         I.pressKey(['Control', 'a']);
-        I.clearField(this.fields.cmbLocation);
+        I.pressKey('Backspace');
+        I.fillField(this.fields.cmbLocation, "mobile");
         I.waitForElement(this.buttons.cmbMobileClinic, 10);
         I.click(this.buttons.cmbMobileClinic);
         I.waitForElement(this.buttons.cmbHomeVisit, 10);

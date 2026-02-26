@@ -17,7 +17,7 @@ module.exports = {
         I.click(this.buttons.actionsBtn);
         I.waitForElement(this.buttons.endActiveVisitBtn, 5);
         I.click(this.buttons.endActiveVisitBtn);
-        I.waitForElement(this.buttons.endVisitBtn);
+        I.waitForElement(this.buttons.endVisitBtn, 5);
         I.click(this.buttons.endVisitBtn);
         I.waitForVisible(this.messages.successMsg, 7);
     },
