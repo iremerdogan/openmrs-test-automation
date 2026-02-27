@@ -91,12 +91,11 @@ HEADLESS=true npx codeceptjs run --steps
 │   ├── 05-add_vitals_test.js
 │   ├── 06-add_medication_test.js
 │   ├── 07-end_visit_test.js
-│   └── 08-logout_test.js
 │   └── e2e_test.js
 │
 ├── Parameters/
 │   └── hospital1.json        # Test credentials
-├── test-management/          # Test documentation
+├── jira/          # Test documentation examples from Jira
 └── codecept.conf.js          # Configuration
 ```
 
@@ -159,9 +158,22 @@ Update `Parameters/hospital1.json` with credentials:
 Test cases are documented in Jira with:
 - Scenarios and acceptance criteria
 - Manual execution tracking
-- Bug reports for failures
 
-See `/test-management` for documentation.
+See `/jira` for documentation.
+
+### Traceability
+
+|  Jira Story | Page Object              | Method(s)                         |
+|-------------|--------------------------|-----------------------------------|
+| SCRUM‑23   | `loginPage.js`            | `login()`                         |
+| SCRUM‑16   | `add_patientPage.js`      | `addPatient()`                    |
+| SCRUM‑17   | `search_patientPage.js`   | `searchPatient()`                 |
+| SCRUM-18   | `add_patientVisitPage.js` | `patientVisit()`                  |
+| SCRUM-19   | `add_vitalsPage.js`       | `addVitals()`                     |
+| SCRUM-20   | `add_medicationPage.js`   | `addMedication()`                 |
+| SCRUM-21   | `end_VisitPage.js`        | `endVisit()`                      |
+| SCRUM-22   | `logoutPage.js`           | `logout()`                        |
+
 
 ## Troubleshooting
 
@@ -190,11 +202,11 @@ sudo chmod +x node_modules/.bin/geckodriver
 ```
 
 
-## 🤝 Contributing
+## Contributing
 
 This is a personal portfolio project. Suggestions and feedback are welcome!
 
-## 📧 Contact
+## Contact
 
 - GitHub: https://github.com/iremerdogan
 - LinkedIn: https://linkedin.com/in/irem-nur-erdoğan

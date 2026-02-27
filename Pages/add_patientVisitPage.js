@@ -1,3 +1,12 @@
+/**
+ * TEST‑ID: SCRUM‑18
+ * -------------------------------------------------
+ * Description : Manage a patient visit – start a new visit.
+ *
+ * Contains the UI actions for opening a visit and adding encounter data.
+ */
+
+
 const {I} = inject();
 
 module.exports = {
@@ -43,7 +52,7 @@ module.exports = {
         I.waitForElement(this.buttons.cmbMobileClinic, 10);
         I.click(this.buttons.cmbMobileClinic);
         I.waitForElement(this.buttons.cmbHomeVisit, 10);
-        I.click(this.buttons.cmbHomeVisit);
+        I.click(this.buttons.cmbHomeVisit); //choose the location
         I.waitForElement(this.buttons.cmbPunctuality, 5);
         I.click(this.buttons.cmbPunctuality);
         I.click(this.buttons.startVisit);

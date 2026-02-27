@@ -1,3 +1,13 @@
+/**
+ * TEST‑ID: SCRUM‑20
+ * -------------------------------------------------
+ * Description : Prescribe medication for a patient during a visit.
+ *
+ * Encapsulates the UI steps for searching a drug, selecting dosage/frequency,
+ * and saving the prescription to the patient’s chart.
+ */
+
+
 const {I} = inject();
 
 module.exports = {
@@ -31,10 +41,13 @@ module.exports = {
 
     addMedication: async function(){
         I.click(this.buttons.addMedBtn);
+        //search and select the medication option
         I.waitForElement(this.fields.searchMed, 10);
         I.fillField(this.fields.searchMed, 'Aspirin');
         I.waitForElement(this.buttons.orderAspirin, 5);
         I.click(this.buttons.orderAspirin);
+
+        //enter the dose, choose the route, frequency etc.
         I.waitForElement(this.fields.dose, 10);
         I.click(this.fields.dose);
         I.fillField(this.fields.dose, '1');
@@ -56,6 +69,7 @@ module.exports = {
         I.click(this.buttons.saveOrder);
         I.waitForVisible(this.messages.orderValidation, 10);
         I.click(this.buttons.signBtn);
+        //see the success message
         I.waitForElement(this.messages.successMsg, 5);
         I.seeElement(this.messages.successMsg);
     }   

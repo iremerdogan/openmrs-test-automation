@@ -1,3 +1,13 @@
+/**
+ * TEST‑ID: SCRUM-22
+ * -------------------------------------------------
+ * Description : Admin logout flow for OpenMRS.
+ *
+ * This page‑object implements the logout steps using CodeceptJS.
+ * All selectors are kept in one place to simplify maintenance.
+ */
+
+
 const {I} = inject();
 
 module.exports = {

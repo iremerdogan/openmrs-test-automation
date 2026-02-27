@@ -1,3 +1,12 @@
+/**
+ * TEST‑ID: SCRUM‑21
+ * -------------------------------------------------
+ * Description : Manage a patient visit – end a visit.
+ *
+ * Contains the UI actions for ending a visit so the system records the visit duration.
+ */
+
+
 const {I} = inject();
 
 module.exports = {

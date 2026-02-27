@@ -1,3 +1,13 @@
+/**
+ * TEST‑ID: SCRUM-23
+ * -------------------------------------------------
+ * Description : Admin login flow for OpenMRS.
+ * Jira story   : https://iremnurerdogan.atlassian.net/browse/SCRUM-23
+ *
+ * This page‑object implements the login steps using CodeceptJS.
+ * All selectors are kept in one place to simplify maintenance.
+ */
+
 const { I } = inject();
 
 let parameters = require('../Parameters/hospital1.json');

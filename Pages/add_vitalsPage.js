@@ -1,3 +1,13 @@
+/**
+ * TEST‑ID: SCRUM‑19
+ * -------------------------------------------------
+ * Description : Record vital‑sign measurements (BP, temperature, pulse, etc.).
+ *
+ * Provides helpers to fill the vital‑sign form, validate accepted ranges,
+ * and submit the data for the active patient visit.
+ */
+
+
 const {I} = inject();
 
 const {faker} = require('@faker-js/faker');
@@ -63,6 +73,7 @@ module.exports = {
         { field: this.fields.weight, value: this.patientVitals.weight},
         { field: this.fields.height, value: this.patientVitals.height}, ]
             
+        //created loop to add vitals data (cleaner code)
         for (const item of vitalsData)
         {
             I.waitForElement(item.field, 5);

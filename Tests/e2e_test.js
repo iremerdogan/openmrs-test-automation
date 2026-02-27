@@ -6,6 +6,7 @@ Before(async ({loginPage, add_patientPage, search_patientPage, add_patientVisitP
     await search_patientPage.searchPatient(add_patientPage.patientData.patientId);
     await add_patientVisitPage.patientVisit();
     await add_vitalsPage.addVitals();
+    await add_medicationPage.addMedication();
 });
 
 Scenario("e2e OpenHRM health-system test", async ({I, end_visitPage, logoutPage}) => {

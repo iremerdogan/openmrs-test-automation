@@ -1,3 +1,15 @@
+/**
+ * TEST‑ID: SCRUM‑16
+ * -------------------------------------------------
+ * Description : Register a new patient in OpenMRS.
+ * Jira story   : https://iremnurerdogan.atlassian.net/browse/SCRUM-16
+ *
+ * This page‑object contains the UI elements and actions required to create a
+ * patient record (demographic data, identifiers, etc.).
+ * Keeping selectors centralized makes future UI changes painless.
+ */
+
+
 const { I } = inject();
 
 const {faker} = require('@faker-js/faker');
@@ -35,10 +47,12 @@ module.exports = {
         patientInfo: '//span[contains(text(),"Vitals and biometrics")]'
     },
 
-    patientData: {},
+    patientData: {
+        newpatientId: '//div[contains(@class,"cds--tag--gray")]//span[contains(@class,"_7O7")]'
+    },
 
     addPatient: async function(){
-
+        //produce fake personal info
         const firstName = faker.person.firstName('female');
         const lastName = faker.person.lastName();
         const city = faker.location.city();
@@ -57,6 +71,7 @@ module.exports = {
         this.patientData.firstName = firstName;
         this.patientData.lastName = lastName;
     
+        //enter the personal info
         I.wait(2);
         I.waitForElement(this.buttons.addPatientBtn, 40);
         I.click(this.buttons.addPatientBtn);
@@ -85,7 +100,8 @@ module.exports = {
         await I.pressKey(['Ctrl', 'a']);
         await I.type(birthYear);
 
-        //refactored according to previously mandatory but currently not visible fields 
+        //during the process, sometimes it was mandatory to enter the id info
+        //refactored the method according to this
             
         const idPart = await I.grabNumberOfVisibleElements(this.fields.idCard)
         if (idPart > 0)
@@ -113,8 +129,8 @@ module.exports = {
         I.seeElement(this.messages.successMsg);
         I.waitForElement(this.messages.patientInfo, 45);
         I.seeElement(this.messages.patientInfo);
-        await I.waitForElement('//div[contains(@class,"cds--tag--gray")]//span[contains(@class,"_7O7")]', 20);
-        const patientId = await I.grabTextFrom('//div[contains(@class,"cds--tag--gray")]//span[contains(@class,"_7O7")]');
+        await I.waitForElement(this.patientData.newpatientId, 20); //get the id of the newly registered patient
+        const patientId = await I.grabTextFrom(this.patientData.newpatientId);
         this.patientData.patientId = patientId;
         
         console.log(this.patientData);

@@ -17,6 +17,7 @@ exports.config = {
     WebDriver: {
       url: 'https://o3.openmrs.org/openmrs/spa/login#',
       browser: 'firefox',
+      windowSize: 'maximize',
       geckoDriver: './node_modules/.bin/geckodriver'
     }
   },
