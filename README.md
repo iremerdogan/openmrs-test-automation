@@ -37,7 +37,7 @@ sudo apt install nodejs npm firefox git
 
 Clone and install dependencies:
 ```bash
-git clone https://github.com/your-username/openmrs-test-automation.git
+git clone https://github.com/iremerdogan/openmrs-test-automation.git
 cd openmrs-test-automation
 npm install
 ```
@@ -141,15 +141,6 @@ helpers: {
     browser: 'firefox',
     waitForTimeout: 60000
   }
-}
-```
-
-Update `Parameters/hospital1.json` with credentials:
-```json
-{
-  "url": "https://o3.openmrs.org/openmrs/spa/login",
-  "userName": "your-username",
-  "password": "your-password"
 }
 ```
 
