@@ -20,7 +20,7 @@ module.exports = {
     },
 
     buttons:{
-        actionsBtn: 'button#custom-actions-overflow-menu-trigger', //button[@aria-label="App Menu"]
+        actionsBtn: '//button/span[contains(text(),"Actions")]',
         endVisitBtn: '//button//div[contains(text(),"End active visit")]',
         addVisitBtn: '//button//div[contains(text(),"Add visit")]',
         cmbPunctuality: '//div//option[contains(text(),"Select an option")]',

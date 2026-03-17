@@ -16,7 +16,7 @@ module.exports = {
     },
 
     buttons: {
-        actionsBtn: 'button#custom-actions-overflow-menu-trigger',
+        actionsBtn: '//button/span[contains(text(),"Actions")]',
         endActiveVisitBtn: '//button//div[contains(text(),"End active visit")]',
         endVisitBtn: '//button[contains(text(),"End Visit")]',
     },

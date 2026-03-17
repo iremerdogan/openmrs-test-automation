@@ -13,7 +13,7 @@ const {I} = inject();
 module.exports = {
 
     fields:{
-        searchBar: '//input[@role="searchbox"]',
+        searchBar: '//input[@placeholder="Search for a patient by name or identifier number"]',
         patientInfoId: '//div[contains(@class,"cds--tag--gray")]//span[contains(@class,"_7O7")]'
     },
 
@@ -28,7 +28,7 @@ module.exports = {
         await I.waitForVisible('//p[contains(text(),"Service queues")]', 40);
         await I.waitForElement(this.buttons.searchBtn, 5);
         await I.click(this.buttons.searchBtn);
-        await I.waitForElement(this.fields.searchBar, 5);
+        await I.waitForElement(this.fields.searchBar, 10);
         await I.fillField(this.fields.searchBar, patientId); //search with patient id
         await I.waitForElement(`//span[contains(text(),"${patientId}")]`, 5); //because sometimes another element obscures it  
         await I.click(`//span[contains(text(),"${patientId}")]`);

@@ -13,7 +13,7 @@ const {I} = inject();
 module.exports = {
 
     fields: {
-        searchMed: '//input[starts-with(@placeholder, "Search for a drug")]',
+        searchMed: '//input[@type="search"]',
         dose: 'input#doseSelection',
         medRoute: 'input#editRoute',
         frequency: 'input#editFrequency',
@@ -28,6 +28,7 @@ module.exports = {
     
     buttons:{
         addMedBtn: '//p[contains(text(),"active medications")]/following-sibling::p/button',
+        addDrugOrders: '//*[@class="-esm-patient-medications__drug-order-basket-panel__buttonContainer___pDhdj"]/button[contains(text(),"Add")]',
         orderAspirin: '//div[contains(., "Aspirin 81mg")]/ancestor::div[contains(@class, "cds--tile")]//button[contains(., "Order form")]',
         prescRefillsBtn: '//label[contains(., "Prescription refills")]/following-sibling::div//button[@title="Increment number"]',
         saveOrder: '//button[contains(text(),"Save order")]',
@@ -36,12 +37,14 @@ module.exports = {
 
     messages:{
         orderValidation: '//div[contains(@class, "cds--tile")][.//span[text()="New"]][.//div[contains(., "Aspirin 81mg")]]',
-        successMsg: '//div[contains(text(),"Placed orders")]',
+        successMsg: '//div[contains(text(),"Order placed")]',
     },
 
     addMedication: async function(){
         I.click(this.buttons.addMedBtn);
         //search and select the medication option
+        I.waitForElement(this.buttons.addDrugOrders, 10);
+        I.click(this.buttons.addDrugOrders);
         I.waitForElement(this.fields.searchMed, 10);
         I.fillField(this.fields.searchMed, 'Aspirin');
         I.waitForElement(this.buttons.orderAspirin, 5);

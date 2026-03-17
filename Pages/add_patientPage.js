@@ -33,7 +33,7 @@ module.exports = {
     },
 
     buttons:{
-        addPatientBtn: '//button[@name="AddPatientIcon"]',
+        addPatientBtn: '//button[@aria-label= "Add patient"]',
         dateForward: '//button[@id="react-aria8241816415-:r3b:"]',
         registerBtn: '//button[contains(text(),"Register patient")]'
     },

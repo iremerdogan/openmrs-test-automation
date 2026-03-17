@@ -13,7 +13,7 @@ const {I} = inject();
 module.exports = {
 
     buttons:{
-        userBtn: '//button[@name="User"]',
+        userBtn: '//button[@aria-label="My Account"]',
         logoutBtn: '//button[contains(text(),"Logout")]',
     },
 
