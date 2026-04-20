@@ -9,7 +9,7 @@ Before(async ({loginPage, add_patientPage, search_patientPage, add_patientVisitP
     await add_medicationPage.addMedication();
 });
 
-Scenario("e2e OpenHRM health-system test", async ({I, end_visitPage, logoutPage}) => {
+Scenario("e2e OpenMRS health-system test", async ({I, end_visitPage, logoutPage}) => {
     await end_visitPage.endVisit();
     await logoutPage.logout();
 });
